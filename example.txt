@@ -1,0 +1,17 @@
+cd C:\Program Files\MySQL\MySQL Server 8.0\bin 
+MySQL
+CREATE DATABASE example;
+CREATE DATABASE sample;
+USE example;
+CREATE TABLE users (id INT, name VARCHAR(255));
+exit
+
+mysqldump example > example.sql
+
+MySQL sample < example.sql
+
+/*попробовала выполнить 4е задание, но не вышло. Делала следующим образом:
+mysqldump  --where="true limit 100" mysql help_keyword > mysql.sql
+когда пыталась развернуть эту команду в заранее созданную БЗ sample2
+MySQL sample2 < mysql.sql
+появилась ошибка: ERROR 3723 (HY000) at line 25: The table 'help_keyword' may not be created in the reserved tablespace 'mysql'.*/
